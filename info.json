@@ -1,0 +1,9 @@
+{
+    "name": "forktorio",
+    "version": "0.1.0",
+    "title": "Forktorio",
+    "author": "JayTheCoderX",
+    "factorio_version": "1.1",
+    "dependencies": ["base >= 1.1"],
+    "description": "Frosk."
+  } 
