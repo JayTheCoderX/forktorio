@@ -80,7 +80,7 @@ data:extend(
   },
 })
 
-local plasticFork = table.deepcopy(data.raw["item"]["plastic-bar"]) -- copy the table that defines the heavy armor item into the fireArmor variable
+local plasticFork = table.deepcopy(data.raw["capsule"]["raw-fish"]) -- copy the table that defines the heavy armor item into the fireArmor variable
 
 plasticFork.name = "plastic-fork"
 plasticFork.icons = {
@@ -88,6 +88,46 @@ plasticFork.icons = {
     icon = "__forktorio__/graphics/plastic-fork.png",
   },
 }
+plasticFork.capsule_action =
+    {
+      type = "use-on-self",
+      attack_parameters =
+      {
+        type = "projectile",
+        activation_type = "consume",
+        ammo_category = "capsule",
+        cooldown = 400,
+        range = 0,
+        ammo_type =
+        {
+          category = "capsule",
+          target_type = "position",
+          action =
+          {
+            type = "direct",
+            action_delivery =
+            {
+              type = "instant",
+              target_effects =
+              {
+                {
+                  type = "damage",
+                  damage = {type = "physical", amount = 80}
+                },
+                {
+                  type = "play-sound",
+                  sound = {
+                    {
+                      filename = "__forktorio__/sounds/eatingfork.ogg",
+                      volume = 0.4
+                    },}
+                }
+              }
+            }
+          }
+        }
+      }
+    }
 local forkrecipe = {
   type = "recipe",
   category = "injection-moulding",
